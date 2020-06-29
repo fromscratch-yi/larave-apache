@@ -1,0 +1,42 @@
+version: '3'
+
+services:
+  web:
+    container_name: web
+    build: ./docker
+    ports:
+      - 80:80
+    privileged: true
+    volumes:
+      - ./src:/var/www/html
+
+  mysql:
+    image: mysql:5.7
+    container_name: mysql-host
+    environment:
+        MYSQL_ROOT_PASSWORD: root
+        MYSQL_DATABASE: test_db
+        MYSQL_USER: docker
+        MYSQL_PASSWORD: docker
+        TZ: 'Asia/Tokyo'
+    command: mysqld --innodb-use-native-aio=0 --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    volumes:
+    - ./docker/mysql/data:/var/lib/mysql
+    - ./docker/mysql/my.cnf:/etc/mysql/conf.d/my.cnf
+    - ./docker/mysql/sql:/docker-entrypoint-initdb.d
+    ports:
+    - 3306:3306
+
+  postgres:
+    restart: always
+    image: postgres:alpine
+    container_name: postgres-host
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - 15432:5432
+    user: postgres
+    volumes:
+      - ./docker/postgres/init:/docker-entrypoint-initdb.d
+      - ./docker/postgres/data:/var/lib/postgresql/data

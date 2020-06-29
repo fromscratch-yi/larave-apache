@@ -1,0 +1,8 @@
+docker/mysql/*
+docker/postgres/data
+!.gitkeep
+*~
+.DS_Store
+._.DS_Store
+**/.DS_Store
+**/._.DS_Store
