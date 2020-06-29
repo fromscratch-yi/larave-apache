@@ -1,5 +1,8 @@
 ## ソースのダウンロード
-- 適当な
+- 適当な作業ディレクトリにて、ソースをcloneする。
+```
+git clone https://github.com/yufrom/larave-apache.git
+```
 
 ## コンテナの起動
 ```
