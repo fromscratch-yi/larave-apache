@@ -6,6 +6,8 @@ docker-compose up -d
 ## laravelプロジェクトの開始
 ```
 docker-compose exec web composer install
+cp src/.env.example src/.env
+docker-compose exec web php artisan key:generate
 ```
 
 ## mySQLへの接続テスト
