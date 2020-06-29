@@ -5,7 +5,7 @@ docker-compose up -d
 
 ## laravelプロジェクトの開始
 ```
-docker-compose exec web composer create-project "laravel/laravel=5.6.*" .
+docker-compose exec php composer install
 ```
 
 ## mySQLへの接続テスト
