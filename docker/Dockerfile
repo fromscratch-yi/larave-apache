@@ -19,3 +19,4 @@ RUN a2enmod rewrite
 RUN service apache2 restart
 
 RUN composer global require "laravel/installer"
+# docker-compose exec web composer create-project "laravel/laravel=5.6.*" .
