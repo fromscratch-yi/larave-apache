@@ -38,5 +38,9 @@ services:
       - 15432:5432
     user: postgres
     volumes:
-      - ./docker/postgres/init:/docker-entrypoint-initdb.d
-      - ./docker/postgres/data:/var/lib/postgresql/data
+      - test_db:/var/lib/postgresql/data
+      - ./docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
+
+volumes:
+  test_db:
+    external: true

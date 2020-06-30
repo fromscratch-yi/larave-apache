@@ -4,6 +4,11 @@
 git clone https://github.com/yufrom/larave-apache.git
 ```
 
+## Postgres用マウントコンテナ作成（Windows対応）
+```
+docker volume create --name test_db
+```
+
 ## コンテナの起動
 ```
 docker-compose up -d
